@@ -11,8 +11,8 @@ public class Station extends BaseEntity {
 	@Column(unique = true, nullable = false)
 	private String name;
 
-	@OneToMany
-	private List<Line> lineList = new ArrayList<>();
+	@OneToMany(mappedBy = "station")
+	private List<StationLine> lineList = new ArrayList<>();
 
 	@Embedded
 	@Column
@@ -22,7 +22,7 @@ public class Station extends BaseEntity {
 		this.name = name;
 	}
 
-	public Station(String name,  List<Line> lineList) {
+	public Station(String name,  List<StationLine> lineList) {
 		this.name = name;
 		this.lineList = lineList;
 	}
@@ -31,10 +31,14 @@ public class Station extends BaseEntity {
 		this.name = name;
 		this.distance = distanceMeter;
 	}
-	public Station(String name, List<Line> lineList, Distance distanceMeter) {
+	public Station(String name, List<StationLine> lineList, Distance distanceMeter) {
 		this.name = name;
 		this.lineList = lineList;
 		this.distance = distanceMeter;
+	}
+
+	public Station() {
+
 	}
 
 	public String getName() {
@@ -45,11 +49,11 @@ public class Station extends BaseEntity {
 		this.name = name;
 	}
 
-	public List<Line> getLineList() {
+	public List<StationLine> getLineList() {
 		return lineList;
 	}
 
-	public void setLineList(List<Line> lineList) {
+	public void setLineList(List<StationLine> lineList) {
 		this.lineList = lineList;
 	}
 

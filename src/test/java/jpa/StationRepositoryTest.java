@@ -38,30 +38,30 @@ class StationRepositoryTest {
 		assertThat(actual).isEqualTo(expected);
 	}
 
-	@Test
-	void 지하철역은_여러_노선에_소속될_수_있다(){
-		List<Line> lineList = new ArrayList<>();
-		lineList.add(new Line("연두색", "2호선"));
-		lineList.add(new Line("보라색", "5호선"));
+//	@Test
+//	void 지하철역은_여러_노선에_소속될_수_있다(){
+//		List<Line> lineList = new ArrayList<>();
+//		lineList.add(new Line("연두색", "2호선"));
+//		lineList.add(new Line("보라색", "5호선"));
+//
+//		stations.save(new Station("왕십리역", lineList, new Distance("상왕십리", 1250)));
+//
+//		assertThat(stations.findByName("왕십리역").getLineList().size()).isEqualTo(2);
+//
+//	}
 
-		stations.save(new Station("왕십리역", lineList, new Distance("상왕십리", 1250)));
-
-		assertThat(stations.findByName("왕십리역").getLineList().size()).isEqualTo(2);
-
-	}
-
-	@Test
-	void 지하철역_조회_시_어느_노선에_속한지_볼_수_있다(){
-		List<Line> lineList = new ArrayList<>();
-		lineList.add(new Line("연두색", "2호선"));
-		lineList.add(new Line("보라색", "5호선"));
-
-		stations.save(new Station("왕십리역", lineList, new Distance("상왕십리역", 1250)));
-		Station findStation = stations.findByName("왕십리역");
-		assertAll(
-				() -> assertThat(findStation.getLineList().contains(new Line("연두색", "2호선"))),
-				() -> assertThat(findStation.getLineList().contains(new Line("보라색", "5호선")))
-		);
-	}
+//	@Test
+//	void 지하철역_조회_시_어느_노선에_속한지_볼_수_있다(){
+//		List<Line> lineList = new ArrayList<>();
+//		lineList.add(new Line("연두색", "2호선"));
+//		lineList.add(new Line("보라색", "5호선"));
+//
+//		stations.save(new Station("왕십리역", lineList, new Distance("상왕십리역", 1250)));
+//		Station findStation = stations.findByName("왕십리역");
+//		assertAll(
+//				() -> assertThat(findStation.getLineList().contains(new Line("연두색", "2호선"))),
+//				() -> assertThat(findStation.getLineList().contains(new Line("보라색", "5호선")))
+//		);
+//	}
 
 }

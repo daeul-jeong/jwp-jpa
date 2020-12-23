@@ -14,8 +14,8 @@ public class Line extends BaseEntity {
 	@Column(unique = true, nullable = false)
 	private String name;
 
-	@OneToMany
-	private List<Station> stationList = new ArrayList<>();
+	@OneToMany(mappedBy = "line")
+	private List<StationLine> stationList = new ArrayList<>();
 
 	public Line() {
 	}
@@ -25,7 +25,7 @@ public class Line extends BaseEntity {
 		this.name = name;
 	}
 
-	public Line(String color, String name, List<Station> stationList) {
+	public Line(String color, String name, List<StationLine> stationList) {
 		this.color = color;
 		this.name = name;
 		this.stationList = stationList;
@@ -47,11 +47,11 @@ public class Line extends BaseEntity {
 		this.name = name;
 	}
 
-	public List<Station> getStationList() {
+	public List<StationLine> getStationList() {
 		return stationList;
 	}
 
-	public void setStationList(List<Station> stationList) {
+	public void setStationList(List<StationLine> stationList) {
 		this.stationList = stationList;
 	}
 
