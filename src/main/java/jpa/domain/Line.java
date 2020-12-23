@@ -14,6 +14,7 @@ public class Line extends BaseEntity {
 	@Column(unique = true, nullable = false)
 	private String name;
 
+	// https://ict-nroo.tistory.com/127
 	@OneToMany(mappedBy = "line")
 	private List<StationLine> stationList = new ArrayList<>();
 
